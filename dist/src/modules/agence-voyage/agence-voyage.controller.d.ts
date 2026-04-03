@@ -56,12 +56,12 @@ export declare class AgenceVoyageController {
             id: number;
             description: string;
             agenceVoyageId: number;
+            statut: import("@prisma/client").$Enums.StatutReclamation;
             reservationId: number;
             sujet: string;
             dateOuverture: Date;
             dateResolution: Date | null;
             reponseAgence: string | null;
-            statut: import("@prisma/client").$Enums.StatutReclamation;
         }[];
     } & {
         email: string;

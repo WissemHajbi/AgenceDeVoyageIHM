@@ -67,16 +67,16 @@ export declare class ChambreController {
         reservations: {
             id: number;
             accountId: number;
-            statut: import("@prisma/client").$Enums.StatutReservation;
             chambreId: number;
-            dateCreation: Date;
             dateArrivee: Date;
             dateDepart: Date;
             nombrePersonnes: number;
             nombreNuits: number;
             montantTotal: number;
             codeConfirmation: string;
+            statut: import("@prisma/client").$Enums.StatutReservation;
             motifBlocage: string | null;
+            dateCreation: Date;
         }[];
     } & {
         id: number;

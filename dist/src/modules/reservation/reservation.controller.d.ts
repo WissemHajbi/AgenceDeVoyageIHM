@@ -26,16 +26,16 @@ export declare class ReservationController {
     } & {
         id: number;
         accountId: number;
-        statut: import("@prisma/client").$Enums.StatutReservation;
         chambreId: number;
-        dateCreation: Date;
         dateArrivee: Date;
         dateDepart: Date;
         nombrePersonnes: number;
         nombreNuits: number;
         montantTotal: number;
         codeConfirmation: string;
+        statut: import("@prisma/client").$Enums.StatutReservation;
         motifBlocage: string | null;
+        dateCreation: Date;
     }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
     findAll(accountId?: string): import("@prisma/client").Prisma.PrismaPromise<({
         chambre: {
@@ -67,16 +67,16 @@ export declare class ReservationController {
     } & {
         id: number;
         accountId: number;
-        statut: import("@prisma/client").$Enums.StatutReservation;
         chambreId: number;
-        dateCreation: Date;
         dateArrivee: Date;
         dateDepart: Date;
         nombrePersonnes: number;
         nombreNuits: number;
         montantTotal: number;
         codeConfirmation: string;
+        statut: import("@prisma/client").$Enums.StatutReservation;
         motifBlocage: string | null;
+        dateCreation: Date;
     })[]> | import("@prisma/client").Prisma.PrismaPromise<({
         account: {
             profile: {
@@ -110,16 +110,16 @@ export declare class ReservationController {
     } & {
         id: number;
         accountId: number;
-        statut: import("@prisma/client").$Enums.StatutReservation;
         chambreId: number;
-        dateCreation: Date;
         dateArrivee: Date;
         dateDepart: Date;
         nombrePersonnes: number;
         nombreNuits: number;
         montantTotal: number;
         codeConfirmation: string;
+        statut: import("@prisma/client").$Enums.StatutReservation;
         motifBlocage: string | null;
+        dateCreation: Date;
     })[]>;
     findOne(id: number): import("@prisma/client").Prisma.Prisma__ReservationClient<({
         account: {
@@ -178,60 +178,60 @@ export declare class ReservationController {
             reservationId: number;
             note: number;
             commentaire: string | null;
-            datePublication: Date;
             valide: boolean;
+            datePublication: Date;
         }[];
         reclamations: {
             id: number;
             description: string;
             agenceVoyageId: number;
+            statut: import("@prisma/client").$Enums.StatutReclamation;
             reservationId: number;
             sujet: string;
             dateOuverture: Date;
             dateResolution: Date | null;
             reponseAgence: string | null;
-            statut: import("@prisma/client").$Enums.StatutReclamation;
         }[];
     } & {
         id: number;
         accountId: number;
-        statut: import("@prisma/client").$Enums.StatutReservation;
         chambreId: number;
-        dateCreation: Date;
         dateArrivee: Date;
         dateDepart: Date;
         nombrePersonnes: number;
         nombreNuits: number;
         montantTotal: number;
         codeConfirmation: string;
+        statut: import("@prisma/client").$Enums.StatutReservation;
         motifBlocage: string | null;
+        dateCreation: Date;
     }) | null, null, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
     update(id: number, dto: UpdateReservationDto): import("@prisma/client").Prisma.Prisma__ReservationClient<{
         id: number;
         accountId: number;
-        statut: import("@prisma/client").$Enums.StatutReservation;
         chambreId: number;
-        dateCreation: Date;
         dateArrivee: Date;
         dateDepart: Date;
         nombrePersonnes: number;
         nombreNuits: number;
         montantTotal: number;
         codeConfirmation: string;
+        statut: import("@prisma/client").$Enums.StatutReservation;
         motifBlocage: string | null;
+        dateCreation: Date;
     }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
     remove(id: number): import("@prisma/client").Prisma.Prisma__ReservationClient<{
         id: number;
         accountId: number;
-        statut: import("@prisma/client").$Enums.StatutReservation;
         chambreId: number;
-        dateCreation: Date;
         dateArrivee: Date;
         dateDepart: Date;
         nombrePersonnes: number;
         nombreNuits: number;
         montantTotal: number;
         codeConfirmation: string;
+        statut: import("@prisma/client").$Enums.StatutReservation;
         motifBlocage: string | null;
+        dateCreation: Date;
     }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
 }

@@ -9,69 +9,69 @@ export declare class AvisController {
         reservationId: number;
         note: number;
         commentaire: string | null;
-        datePublication: Date;
         valide: boolean;
+        datePublication: Date;
     }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
     findAll(): import("@prisma/client").Prisma.PrismaPromise<({
         reservation: {
             id: number;
             accountId: number;
-            statut: import("@prisma/client").$Enums.StatutReservation;
             chambreId: number;
-            dateCreation: Date;
             dateArrivee: Date;
             dateDepart: Date;
             nombrePersonnes: number;
             nombreNuits: number;
             montantTotal: number;
             codeConfirmation: string;
+            statut: import("@prisma/client").$Enums.StatutReservation;
             motifBlocage: string | null;
+            dateCreation: Date;
         };
     } & {
         id: number;
         reservationId: number;
         note: number;
         commentaire: string | null;
-        datePublication: Date;
         valide: boolean;
+        datePublication: Date;
     })[]>;
     findOne(id: number): import("@prisma/client").Prisma.Prisma__AvisClient<({
         reservation: {
             id: number;
             accountId: number;
-            statut: import("@prisma/client").$Enums.StatutReservation;
             chambreId: number;
-            dateCreation: Date;
             dateArrivee: Date;
             dateDepart: Date;
             nombrePersonnes: number;
             nombreNuits: number;
             montantTotal: number;
             codeConfirmation: string;
+            statut: import("@prisma/client").$Enums.StatutReservation;
             motifBlocage: string | null;
+            dateCreation: Date;
         };
     } & {
         id: number;
         reservationId: number;
         note: number;
         commentaire: string | null;
-        datePublication: Date;
         valide: boolean;
+        datePublication: Date;
     }) | null, null, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
     update(id: number, dto: UpdateAvisDto): import("@prisma/client").Prisma.Prisma__AvisClient<{
         id: number;
         reservationId: number;
         note: number;
         commentaire: string | null;
-        datePublication: Date;
         valide: boolean;
+        datePublication: Date;
     }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
     remove(id: number): import("@prisma/client").Prisma.Prisma__AvisClient<{
         id: number;
         reservationId: number;
         note: number;
         commentaire: string | null;
-        datePublication: Date;
         valide: boolean;
+        datePublication: Date;
     }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
 }

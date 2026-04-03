@@ -8,12 +8,12 @@ export declare class ReclamationController {
         id: number;
         description: string;
         agenceVoyageId: number;
+        statut: import("@prisma/client").$Enums.StatutReclamation;
         reservationId: number;
         sujet: string;
         dateOuverture: Date;
         dateResolution: Date | null;
         reponseAgence: string | null;
-        statut: import("@prisma/client").$Enums.StatutReclamation;
     }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
     findAll(): import("@prisma/client").Prisma.PrismaPromise<({
         agenceVoyage: {
@@ -28,27 +28,27 @@ export declare class ReclamationController {
         reservation: {
             id: number;
             accountId: number;
-            statut: import("@prisma/client").$Enums.StatutReservation;
             chambreId: number;
-            dateCreation: Date;
             dateArrivee: Date;
             dateDepart: Date;
             nombrePersonnes: number;
             nombreNuits: number;
             montantTotal: number;
             codeConfirmation: string;
+            statut: import("@prisma/client").$Enums.StatutReservation;
             motifBlocage: string | null;
+            dateCreation: Date;
         };
     } & {
         id: number;
         description: string;
         agenceVoyageId: number;
+        statut: import("@prisma/client").$Enums.StatutReclamation;
         reservationId: number;
         sujet: string;
         dateOuverture: Date;
         dateResolution: Date | null;
         reponseAgence: string | null;
-        statut: import("@prisma/client").$Enums.StatutReclamation;
     })[]>;
     findOne(id: number): import("@prisma/client").Prisma.Prisma__ReclamationClient<({
         agenceVoyage: {
@@ -63,48 +63,48 @@ export declare class ReclamationController {
         reservation: {
             id: number;
             accountId: number;
-            statut: import("@prisma/client").$Enums.StatutReservation;
             chambreId: number;
-            dateCreation: Date;
             dateArrivee: Date;
             dateDepart: Date;
             nombrePersonnes: number;
             nombreNuits: number;
             montantTotal: number;
             codeConfirmation: string;
+            statut: import("@prisma/client").$Enums.StatutReservation;
             motifBlocage: string | null;
+            dateCreation: Date;
         };
     } & {
         id: number;
         description: string;
         agenceVoyageId: number;
+        statut: import("@prisma/client").$Enums.StatutReclamation;
         reservationId: number;
         sujet: string;
         dateOuverture: Date;
         dateResolution: Date | null;
         reponseAgence: string | null;
-        statut: import("@prisma/client").$Enums.StatutReclamation;
     }) | null, null, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
     update(id: number, dto: UpdateReclamationDto): import("@prisma/client").Prisma.Prisma__ReclamationClient<{
         id: number;
         description: string;
         agenceVoyageId: number;
+        statut: import("@prisma/client").$Enums.StatutReclamation;
         reservationId: number;
         sujet: string;
         dateOuverture: Date;
         dateResolution: Date | null;
         reponseAgence: string | null;
-        statut: import("@prisma/client").$Enums.StatutReclamation;
     }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
     remove(id: number): import("@prisma/client").Prisma.Prisma__ReclamationClient<{
         id: number;
         description: string;
         agenceVoyageId: number;
+        statut: import("@prisma/client").$Enums.StatutReclamation;
         reservationId: number;
         sujet: string;
         dateOuverture: Date;
         dateResolution: Date | null;
         reponseAgence: string | null;
-        statut: import("@prisma/client").$Enums.StatutReclamation;
     }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
 }
