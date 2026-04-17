@@ -5,10 +5,14 @@ import { UpdateChambreDto } from './dto/update-chambre.dto';
 
 @Injectable()
 export class ChambreService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   create(dto: CreateChambreDto) {
-    return this.prisma.chambre.create({ data: dto, include: { typeChambre: true } });
+    try {
+      return this.prisma.chambre.create({ data: dto, include: { typeChambre: true } });
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   findAll() {

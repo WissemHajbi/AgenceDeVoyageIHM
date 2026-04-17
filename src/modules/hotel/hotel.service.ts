@@ -8,7 +8,10 @@ export class HotelService {
   constructor(private readonly prisma: PrismaService) { }
 
   create(dto: CreateHotelDto) {
-    return this.prisma.hotel.create({ data: dto });
+    try {
+      return this.prisma.hotel.create({ data: dto });
+    } catch (error) {
+    }
   }
 
   findAll(filters?: { dest?: string; prix?: string; classment?: number }) {
