@@ -5,14 +5,48 @@ import { UpdateHotelDto } from './dto/update-hotel.dto';
 
 @Injectable()
 export class HotelService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   create(dto: CreateHotelDto) {
     return this.prisma.hotel.create({ data: dto });
   }
 
-  findAll() {
-    return this.prisma.hotel.findMany({ include: { chambres: true, offres: true } });
+  findAll(filters?: { dest?: string; prix?: string; classment?: number }) {
+    const whereClauses: any = {};
+
+    if (filters) {
+      const { dest, prix, classment } = filters;
+      const and = [];
+
+      if (dest) {
+        and.push({
+          OR: [
+            { ville: { contains: dest, mode: 'insensitive' } },
+            { pays: { contains: dest, mode: 'insensitive' } },
+          ],
+        });
+      }
+
+      if (classment !== null && !Number.isNaN(classment)) {
+        and.push({ etoiles: classment });
+      }
+
+      if (prix) {
+        const parts = prix.split(',').map((p) => p.trim()).filter(Boolean);
+        const min = parts[0] ? parseFloat(parts[0]) : undefined;
+        const max = parts[1] ? parseFloat(parts[1]) : undefined;
+        if (min || max) {
+          const prixCond: { gte?: number, lte?: number } = {};
+          if (typeof min !== 'undefined') prixCond.gte = min;
+          if (typeof max !== 'undefined') prixCond.lte = max;
+          and.push({ chambres: { some: { prixParNuit: prixCond } } });
+        }
+      }
+
+      if (and.length) whereClauses.AND = and;
+    }
+
+    return this.prisma.hotel.findMany({ where: whereClauses, include: { chambres: true, offres: true } });
   }
 
   findOne(id: number) {
