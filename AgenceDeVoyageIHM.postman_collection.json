@@ -1,0 +1,802 @@
+{
+  "info": {
+    "_postman_id": "d7fd53f0-9f4f-4950-8a9f-df535f85a112",
+    "name": "AgenceDeVoyageIHM API",
+    "description": "Collection generated from Nest controllers + DTOs. Base URL includes global prefix /api.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/api"
+    },
+    {
+      "key": "id",
+      "value": "1"
+    },
+    {
+      "key": "accountId",
+      "value": "1"
+    },
+    {
+      "key": "hotelId",
+      "value": "1"
+    },
+    {
+      "key": "cle",
+      "value": "annulation.delai"
+    }
+  ],
+  "item": [
+    {
+      "name": "Accounts",
+      "item": [
+        {
+          "name": "Create account",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"client1@example.com\",\n  \"motDePasse\": \"Secret123!\",\n  \"actif\": true\n}"
+            },
+            "url": "{{baseUrl}}/accounts"
+          }
+        },
+        {
+          "name": "Get all accounts",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts"
+          }
+        },
+        {
+          "name": "Get account by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/{{id}}"
+          }
+        },
+        {
+          "name": "Update account",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"client1.updated@example.com\",\n  \"motDePasse\": \"NewSecret123!\",\n  \"actif\": false\n}"
+            },
+            "url": "{{baseUrl}}/accounts/{{id}}"
+          }
+        },
+        {
+          "name": "Delete account",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/accounts/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Agences Voyage",
+      "item": [
+        {
+          "name": "Create agence voyage",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"agence1@example.com\",\n  \"motDePasse\": \"AgencePass123!\",\n  \"nomAgence\": \"Agence Horizon\",\n  \"siret\": \"12345678901234\",\n  \"adresseAgence\": \"10 Rue de Paris, Tunis\",\n  \"actif\": true\n}"
+            },
+            "url": "{{baseUrl}}/agences-voyage"
+          }
+        },
+        {
+          "name": "Get all agences voyage",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/agences-voyage"
+          }
+        },
+        {
+          "name": "Get agence voyage by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/agences-voyage/{{id}}"
+          }
+        },
+        {
+          "name": "Update agence voyage",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nomAgence\": \"Agence Horizon Plus\",\n  \"adresseAgence\": \"15 Rue Habib Bourguiba, Tunis\",\n  \"actif\": true\n}"
+            },
+            "url": "{{baseUrl}}/agences-voyage/{{id}}"
+          }
+        },
+        {
+          "name": "Delete agence voyage",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/agences-voyage/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hotels",
+      "item": [
+        {
+          "name": "Create hotel",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Hotel Azur\",\n  \"adresse\": \"1 Avenue de la Mer\",\n  \"ville\": \"Sousse\",\n  \"pays\": \"Tunisie\",\n  \"etoiles\": 4,\n  \"description\": \"Hotel proche de la plage\",\n  \"email\": \"contact@hotelazur.tn\",\n  \"telephone\": \"+21670000000\",\n  \"actif\": true,\n  \"estPartenaire\": true,\n  \"agenceVoyageId\": 1\n}"
+            },
+            "url": "{{baseUrl}}/hotels"
+          }
+        },
+        {
+          "name": "Get all hotels",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hotels"
+          }
+        },
+        {
+          "name": "Get hotels with filters",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hotels?dest=Sousse&prix=120-250&classment=4"
+          }
+        },
+        {
+          "name": "Get hotel by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hotels/{{hotelId}}"
+          }
+        },
+        {
+          "name": "Update hotel",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Hotel Azur Premium\",\n  \"etoiles\": 5,\n  \"estPartenaire\": true\n}"
+            },
+            "url": "{{baseUrl}}/hotels/{{hotelId}}"
+          }
+        },
+        {
+          "name": "Delete hotel",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/hotels/{{hotelId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Types Chambre",
+      "item": [
+        {
+          "name": "Create type chambre",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"libelle\": \"Suite Deluxe\",\n  \"description\": \"Grande suite avec vue mer\",\n  \"superficieM2\": 45.5,\n  \"equipements\": [\"WiFi\", \"Climatisation\", \"Mini bar\"]\n}"
+            },
+            "url": "{{baseUrl}}/types-chambre"
+          }
+        },
+        {
+          "name": "Get all types chambre",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/types-chambre"
+          }
+        },
+        {
+          "name": "Get type chambre by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/types-chambre/{{id}}"
+          }
+        },
+        {
+          "name": "Update type chambre",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Suite spacieuse avec balcon\",\n  \"superficieM2\": 48,\n  \"equipements\": [\"WiFi\", \"TV\", \"Jacuzzi\"]\n}"
+            },
+            "url": "{{baseUrl}}/types-chambre/{{id}}"
+          }
+        },
+        {
+          "name": "Delete type chambre",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/types-chambre/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Chambres",
+      "item": [
+        {
+          "name": "Create chambre",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numero\": \"A101\",\n  \"etage\": 1,\n  \"prixParNuit\": 180,\n  \"capacite\": 2,\n  \"disponible\": true,\n  \"photos\": [\"https://picsum.photos/800/500\", \"https://picsum.photos/801/500\"],\n  \"hotelId\": 1,\n  \"typeChambreId\": 1\n}"
+            },
+            "url": "{{baseUrl}}/chambres"
+          }
+        },
+        {
+          "name": "Get all chambres",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/chambres"
+          }
+        },
+        {
+          "name": "Get chambres by hotel",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/chambres?hotelId={{hotelId}}"
+          }
+        },
+        {
+          "name": "Get chambre by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/chambres/{{id}}"
+          }
+        },
+        {
+          "name": "Update chambre",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prixParNuit\": 210,\n  \"capacite\": 3,\n  \"disponible\": true,\n  \"photos\": [\"https://picsum.photos/802/500\"]\n}"
+            },
+            "url": "{{baseUrl}}/chambres/{{id}}"
+          }
+        },
+        {
+          "name": "Delete chambre",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/chambres/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Offres",
+      "item": [
+        {
+          "name": "Create offre",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titre\": \"Offre printemps\",\n  \"description\": \"-20% pour les reservations de mai\",\n  \"tauxRemise\": 20,\n  \"dateDebut\": \"2026-05-01T00:00:00.000Z\",\n  \"dateFin\": \"2026-05-31T23:59:59.000Z\",\n  \"active\": true,\n  \"hotelId\": 1\n}"
+            },
+            "url": "{{baseUrl}}/offres"
+          }
+        },
+        {
+          "name": "Get all offres",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/offres"
+          }
+        },
+        {
+          "name": "Get offre by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/offres/{{id}}"
+          }
+        },
+        {
+          "name": "Update offre",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tauxRemise\": 25,\n  \"active\": true,\n  \"dateFin\": \"2026-06-15T23:59:59.000Z\"\n}"
+            },
+            "url": "{{baseUrl}}/offres/{{id}}"
+          }
+        },
+        {
+          "name": "Delete offre",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/offres/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reservations",
+      "item": [
+        {
+          "name": "Create reservation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": 1,\n  \"chambreId\": 1,\n  \"dateArrivee\": \"2026-07-10T14:00:00.000Z\",\n  \"dateDepart\": \"2026-07-15T11:00:00.000Z\",\n  \"nombrePersonnes\": 2,\n  \"nombreNuits\": 5,\n  \"montantTotal\": 900,\n  \"codeConfirmation\": \"CONF-2026-0001\",\n  \"statut\": \"EN_ATTENTE\",\n  \"motifBlocage\": \"\"\n}"
+            },
+            "url": "{{baseUrl}}/reservations"
+          }
+        },
+        {
+          "name": "Get all reservations",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reservations"
+          }
+        },
+        {
+          "name": "Get reservations by account",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reservations?accountId={{accountId}}"
+          }
+        },
+        {
+          "name": "Get reservation by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reservations/{{id}}"
+          }
+        },
+        {
+          "name": "Update reservation",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statut\": \"CONFIRMEE\",\n  \"montantTotal\": 880,\n  \"motifBlocage\": \"\"\n}"
+            },
+            "url": "{{baseUrl}}/reservations/{{id}}"
+          }
+        },
+        {
+          "name": "Delete reservation",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/reservations/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Avis",
+      "item": [
+        {
+          "name": "Create avis",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reservationId\": 1,\n  \"note\": 5,\n  \"commentaire\": \"Excellent sejour\",\n  \"valide\": true\n}"
+            },
+            "url": "{{baseUrl}}/avis"
+          }
+        },
+        {
+          "name": "Get all avis",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/avis"
+          }
+        },
+        {
+          "name": "Get avis by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/avis/{{id}}"
+          }
+        },
+        {
+          "name": "Update avis",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"note\": 4,\n  \"commentaire\": \"Tres bon sejour\",\n  \"valide\": true\n}"
+            },
+            "url": "{{baseUrl}}/avis/{{id}}"
+          }
+        },
+        {
+          "name": "Delete avis",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/avis/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reclamations",
+      "item": [
+        {
+          "name": "Create reclamation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reservationId\": 1,\n  \"agenceVoyageId\": 1,\n  \"sujet\": \"Retard check-in\",\n  \"description\": \"La chambre n'etait pas prete a l'arrivee\",\n  \"statut\": \"OUVERTE\"\n}"
+            },
+            "url": "{{baseUrl}}/reclamations"
+          }
+        },
+        {
+          "name": "Get all reclamations",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reclamations"
+          }
+        },
+        {
+          "name": "Get reclamation by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reclamations/{{id}}"
+          }
+        },
+        {
+          "name": "Update reclamation",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statut\": \"EN_COURS\",\n  \"description\": \"Traitement en cours\"\n}"
+            },
+            "url": "{{baseUrl}}/reclamations/{{id}}"
+          }
+        },
+        {
+          "name": "Delete reclamation",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/reclamations/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "System Config",
+      "item": [
+        {
+          "name": "Create system config",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cle\": \"annulation.delai\",\n  \"valeur\": \"48\",\n  \"description\": \"Delai limite d'annulation en heures\"\n}"
+            },
+            "url": "{{baseUrl}}/system-config"
+          }
+        },
+        {
+          "name": "Get all system config",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system-config"
+          }
+        },
+        {
+          "name": "Get system config by cle",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system-config/{{cle}}"
+          }
+        },
+        {
+          "name": "Update system config",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valeur\": \"72\",\n  \"description\": \"Delai majore en haute saison\"\n}"
+            },
+            "url": "{{baseUrl}}/system-config/{{id}}"
+          }
+        },
+        {
+          "name": "Delete system config",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/system-config/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Conditions Annulation",
+      "item": [
+        {
+          "name": "Create condition annulation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"delaiLimiteHeures\": 48,\n  \"fraisAnnulation\": 20,\n  \"remboursementTotal\": false,\n  \"description\": \"Annulation possible avec 20% de frais\",\n  \"systemConfigId\": 1\n}"
+            },
+            "url": "{{baseUrl}}/conditions-annulation"
+          }
+        },
+        {
+          "name": "Get all conditions annulation",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/conditions-annulation"
+          }
+        },
+        {
+          "name": "Get condition annulation by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/conditions-annulation/{{id}}"
+          }
+        },
+        {
+          "name": "Update condition annulation",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fraisAnnulation\": 15,\n  \"remboursementTotal\": false,\n  \"description\": \"Reduction des frais d'annulation\"\n}"
+            },
+            "url": "{{baseUrl}}/conditions-annulation/{{id}}"
+          }
+        },
+        {
+          "name": "Delete condition annulation",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/conditions-annulation/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Profiles",
+      "item": [
+        {
+          "name": "Create profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": 1,\n  \"nom\": \"Ben Ali\",\n  \"prenom\": \"Sami\",\n  \"telephone\": \"+21620000000\",\n  \"adresse\": \"Rue de Marseille, Tunis\",\n  \"nationalite\": \"Tunisienne\",\n  \"photo\": \"https://picsum.photos/200/200\"\n}"
+            },
+            "url": "{{baseUrl}}/profiles"
+          }
+        },
+        {
+          "name": "Get profile by accountId",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/profiles/account/{{accountId}}"
+          }
+        },
+        {
+          "name": "Update profile",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"telephone\": \"+21621111111\",\n  \"adresse\": \"Lac 2, Tunis\",\n  \"nationalite\": \"Tunisienne\"\n}"
+            },
+            "url": "{{baseUrl}}/profiles/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notifications",
+      "item": [
+        {
+          "name": "Create notification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": 1,\n  \"message\": \"Votre reservation est confirmee\",\n  \"type\": \"CONFIRMATION_RESERVATION\"\n}"
+            },
+            "url": "{{baseUrl}}/notifications"
+          }
+        },
+        {
+          "name": "Get notifications by account",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/notifications/account/{{accountId}}"
+          }
+        },
+        {
+          "name": "Mark notification as read",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/notifications/{{id}}/read"
+          }
+        },
+        {
+          "name": "Delete notification",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/notifications/{{id}}"
+          }
+        }
+      ]
+    }
+  ]
+}
